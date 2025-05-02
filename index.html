@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Register</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <!-- Sign In Form -->
+  <div class="container" id="signInContainer">
+    <div class="form-title">Sign In</div>
+    <div id="signInMessage" class="messageDiv" style="display: none;"></div>
+    <div class="input-group">
+      <i class="fas fa-envelope"></i>
+      <input type="email" id="email" placeholder="Email" required />
+    </div>
+    <div class="input-group">
+      <i class="fas fa-lock"></i>
+      <input type="password" id="password" placeholder="Password" required />
+    </div>
+    <button id="submitSignIn">Sign In</button>
+    <div class="links">
+      <span>Don't have an account?</span>
+      <button onclick="toggleForms()">Sign Up</button>
+    </div>
+  </div>
+
+  <!-- Sign Up Form -->
+  <div class="container hidden" id="signUpContainer">
+    <div class="form-title">Sign Up</div>
+    <div id="signUpMessage" class="messageDiv" style="display: none;"></div>
+    <div class="input-group">
+      <i class="fas fa-user"></i>
+      <input type="text" id="fName" placeholder="First Name" required />
+    </div>
+    <div class="input-group">
+      <i class="fas fa-user"></i>
+      <input type="text" id="lName" placeholder="Last Name" required />
+    </div>
+    <div class="input-group">
+      <i class="fas fa-envelope"></i>
+      <input type="email" id="rEmail" placeholder="Email" required />
+    </div>
+    <div class="input-group">
+      <i class="fas fa-lock"></i>
+      <input type="password" id="rPassword" placeholder="Password" required />
+    </div>
+    <button id="submitSignUp">Sign Up</button>
+    <div class="links">
+      <span>Already have an account?</span>
+      <button onclick="toggleForms()">Sign In</button>
+    </div>
+  </div>
+
+  <script type="module" src="firebaseauth.js"></script>
+  <script>
+    function toggleForms() {
+      const signInContainer = document.getElementById("signInContainer");
+      const signUpContainer = document.getElementById("signUpContainer");
+
+      signInContainer.classList.toggle("hidden");
+      signUpContainer.classList.toggle("hidden");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timesheet</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #eef1f7, #f9fafe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            color: #4a4a4a;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: #6c63ff;
+            outline: none;
+        }
+
+        button {
+            background-color: #6c63ff;
+            color: white;
+            padding: 14px 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #574b90;
+        }
+    </style>
+    <script type="module" src="./timesheet.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Daily Timesheet</h1>
+
+        <div class="input-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" required />
+        </div>
+
+        <div class="input-group">
+            <label for="checkInTime">Check-In Time</label>
+            <input type="time" id="checkInTime" required />
+        </div>
+
+        <div class="input-group">
+            <label for="checkOutTime">Check-Out Time</label>
+            <input type="time" id="checkOutTime" required />
+        </div>
+
+        <div class="input-group">
+            <label for="task">Tasks</label>
+            <textarea id="task" rows="4" placeholder="Describe your tasks..." required></textarea>
+        </div>
+
+        <div class="input-group">
+            <label for="workplace">Workplace</label>
+            <input type="text" id="workplace" placeholder="Office, Home, etc." required />
+        </div>
+
+        <button id="saveTimesheet">Save Timesheet</button>
+        <h2 style="margin-top: 30px;">Previous Entries</h2>
+        <ul id="timesheetList"></ul>
+
+    </div>
+</body>
+
+</html>
